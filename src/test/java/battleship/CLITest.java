@@ -6,7 +6,6 @@ import java.io.*;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.*;
 
 public class CLITest {
 
@@ -23,7 +22,7 @@ public class CLITest {
 
         String inputLines = new String(bo.toByteArray());
 
-        assertTrue(inputLines.toString().contains("Welcome to Battleship"));
+        assertTrue(inputLines.contains("Welcome to Battleship"));
     }
 
     @Test
@@ -39,8 +38,8 @@ public class CLITest {
 
         String inputLines = new String(bo.toByteArray());
 
-        assertTrue(inputLines.toString().contains("Select from the following by entering 1 - 3:"));
-        assertTrue(inputLines.toString().contains("1. Human vs. Computer"));
+        assertTrue(inputLines.contains("Select from the following by entering 1 - 3:"));
+        assertTrue(inputLines.contains("1. Human vs. Computer"));
     }
 
     @Test
@@ -69,7 +68,7 @@ public class CLITest {
 
         String inputLines = new String(bo.toByteArray());
 
-        assertTrue(inputLines.toString().contains("You entered: 1 for a Human vs. Computer game."));
+        assertTrue(inputLines.contains("You entered: 1 for a Human vs. Computer game."));
     }
 
     @Test
@@ -113,6 +112,24 @@ public class CLITest {
 
         String inputLines = new String(bo.toByteArray());
 
-        assertTrue(inputLines.toString().contains("You selected: 1. Human Player goes first."));
+        assertTrue(inputLines.contains("You selected: 1. Human Player goes first."));
+    }
+
+    @Test
+    public void printBoard() throws IOException {
+        CLI testCli = new CLI();
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        Board board = new Board();
+
+        testCli.printBoard(board);
+
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+
+        assertTrue(inputLines.contains(" +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+ "));
     }
 }

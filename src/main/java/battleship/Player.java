@@ -1,4 +1,10 @@
 package battleship;
 
-public class Player {
+public abstract class Player {
+
+    Player(){}
+
+    abstract String name();
+
+    abstract String move();
 }

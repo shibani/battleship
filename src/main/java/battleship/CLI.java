@@ -3,6 +3,7 @@ package battleship;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,6 +56,30 @@ public class CLI {
     public void confirmPlayerSelection(int selection){
 
         String firstPlayer = (selection == 1) ? "Human Player" : "Computer Player";
-        System.out.print("You selected: " + selection + ". " + firstPlayer + " goes first.");
+        System.out.println("You selected: " + selection + ". " + firstPlayer + " goes first.\n");
+    }
+
+    public void printBoard(Board board) {
+        //Board board = new Board();
+        ArrayList<Integer> positions = board.getPositions();
+
+        int i = 0;
+
+        String border = " +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+ ";
+
+        System.out.println(border);
+        System.out.print(" | ");
+
+        while(i < board.getTotalPositions()) {
+            System.out.print((positions.get(i)/10) + "," + (positions.get(i) % 10) + " | ");
+            if(i % 10 == 9){
+                System.out.print("\n");
+                System.out.println(border);
+                if(i != board.getTotalPositions() - 1){
+                    System.out.print(" | ");
+                }
+            }
+            i++;
+        }
     }
 }

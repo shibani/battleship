@@ -21,17 +21,17 @@ public class Start {
 
         example.confirmPlayerSelection(firstPlayer);
 
-        /*Board board = new Board();
+        Board board = new Board();
 
-        Game game = new Game();
+        Game game = new Game(board);
 
-        Player player1 = new Player();//check type
+        example.printBoard(board);
 
-        Player player2 = new Player();//check type
+        Human player1 = new Human();//check type
+
+        Computer player2 = new Computer();//check type
 
         //game.board = board;
         //player1
-
-        board.printBoard();*/
     }
 }
