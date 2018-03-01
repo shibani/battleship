@@ -83,7 +83,7 @@ public class CLITest {
         bo.flush();
 
         String inputLines = new String(bo.toByteArray());
-        assertTrue(inputLines.toString().contains("Next please select who should go first, enter 1 for Human or 2 for Computer"));
+        assertTrue(inputLines.toString().contains("Next please select who should go first, enter 1 for User or 2 for Opponent"));
     }
 
     @Test
@@ -131,5 +131,47 @@ public class CLITest {
         String inputLines = new String(bo.toByteArray());
 
         assertTrue(inputLines.contains(" +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+ "));
+    }
+
+    @Test
+    public void coordsToPosition() {
+        CLI testCli = new CLI();
+        String coords = "3,4";
+
+        assertEquals(34, testCli.coordsToPosition(coords));
+    }
+
+    @Test
+    public void announcePlayer1Turn() throws IOException {
+        CLI testCli = new CLI();
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        Game game = new Game();
+        game.createPlayers("Human vs. Computer", "User");
+
+        testCli.announcePlayer1Turn(game);
+
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+        assertTrue(inputLines.contains("Player 1's board"));
+        assertTrue(inputLines.contains("Enter your move with one digit for the row and one digit for the column separated by a comma"));
+    }
+
+    @Test
+    public void getMove() throws IOException {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers("Human vs. Computer", "User");
+
+        byte[] data = "4,8".getBytes();
+        InputStream input = new ByteArrayInputStream(data);
+        System.setIn(input);
+
+        String testResult = testCli.getMove();
+
+        assertEquals("4,8", testResult);
     }
 }

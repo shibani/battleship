@@ -6,7 +6,6 @@ public class Board {
 
     private final int totalPositions;
     private ArrayList<Integer> positions = new ArrayList<Integer>();
-    //TODO winning combos: create ships here
 
     Board(){
         this.totalPositions = 100;
@@ -35,5 +34,13 @@ public class Board {
 
     public void won(){
         //TODO All enemy ships were sunk
+    }
+
+    public boolean isEmpty(int position){
+        if(this.getPositions().get(position) != "X" || "O" ){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

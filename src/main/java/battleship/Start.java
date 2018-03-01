@@ -21,17 +21,30 @@ public class Start {
 
         example.confirmPlayerSelection(firstPlayer);
 
-        Board board = new Board();
+        Game game = new Game();
 
-        Game game = new Game(board);
+        game.createPlayers(example.gameTypeChoices.get(choice), example.firstPlayer.get(firstPlayer));
 
-        example.printBoard(board);
+        example.announcePlayer1Turn(game);
 
-        Human player1 = new Human();//check type
+        example.printBoard(game.getPlayer1().getBoard());
 
-        Computer player2 = new Computer();//check type
+        String move = example.getMove();
 
-        //game.board = board;
-        //player1
+        int moveToInt = example.coordsToPosition(move);
+
+        game.getPlayer1().potentialMove(moveToInt);
+
+        //check if spot is open
+        //if game.getPlayer1().board.isEmpty(moveToInt)
+
+        //make move
+
+        //System.out.println("\n\nPlayer 2's board");
+
+        //System.out.println("Player 2 is " + game.getPlayer2().getClass().getName() + ". " +
+                //game.getPlayer2().getClass().getName() + "'s turn:");
+
+        //example.printBoard(game.getPlayer2().getBoard());
     }
 }

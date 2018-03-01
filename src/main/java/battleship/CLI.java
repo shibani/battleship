@@ -9,12 +9,18 @@ import java.util.Map;
 
 public class CLI {
 
-    private static final HashMap<Integer, String> gameTypeChoices = new HashMap<Integer, String>();
+    public static final HashMap<Integer, String> gameTypeChoices = new HashMap<Integer, String>();
+    public static final HashMap<Integer, String> firstPlayer = new HashMap<Integer, String>();
 
     static {
         gameTypeChoices.put(1, "Human vs. Computer");
         gameTypeChoices.put(2, "Computer vs. Computer");
         gameTypeChoices.put(3, "Human vs. Human");
+    }
+
+    static {
+        firstPlayer.put(1, "User");
+        firstPlayer.put(2, "Opponent");
     }
 
     public void welcome() throws IOException {
@@ -43,7 +49,7 @@ public class CLI {
     }
 
     public void selectFirstPlayer() {
-        System.out.println("Next please select who should go first, enter 1 for Human or 2 for Computer");
+        System.out.println("Next please select who should go first, enter 1 for User or 2 for Opponent");
     }
 
     public int getPlayerSelection() throws IOException {
@@ -55,12 +61,11 @@ public class CLI {
 
     public void confirmPlayerSelection(int selection){
 
-        String firstPlayer = (selection == 1) ? "Human Player" : "Computer Player";
-        System.out.println("You selected: " + selection + ". " + firstPlayer + " goes first.\n");
+        System.out.println("You selected: " + selection + ". " + firstPlayer.get(selection) + " goes first.\n");
     }
 
     public void printBoard(Board board) {
-        //Board board = new Board();
+
         ArrayList<Integer> positions = board.getPositions();
 
         int i = 0;
@@ -81,5 +86,26 @@ public class CLI {
             }
             i++;
         }
+    }
+
+    public int coordsToPosition(String coords){
+        String[] coordsArray = coords.split(",");
+        int position = Integer.parseInt(coordsArray[0]) * 10 + Integer.parseInt(coordsArray[1]);
+        return position;
+    }
+
+    public void announcePlayer1Turn(Game game){
+        System.out.println("Player 1 is " + game.getPlayersArray()[0].getClass().getName() + ". " +
+                game.getPlayer1().getClass().getName() + " goes first:");
+
+        System.out.println("Player 1's board");
+        System.out.println("Enter your move with one digit for the row and one digit for the column separated by a comma");
+    }
+
+    public String getMove() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input = br.readLine();
+
+        return input;
     }
 }

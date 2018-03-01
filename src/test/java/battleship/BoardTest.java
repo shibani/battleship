@@ -27,4 +27,20 @@ public class BoardTest {
 
         assertEquals(100, testBoard.getTotalPositions());
     }
+
+    @Test
+    public void sankShip() {
+    }
+
+    @Test
+    public void won() {
+    }
+
+    @Test
+    public void isEmpty(){
+        Board testBoard = new Board();
+
+        boolean result = testBoard.isEmpty(36);
+        assertEquals(true, result);
+    }
 }

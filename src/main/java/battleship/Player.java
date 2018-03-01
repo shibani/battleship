@@ -1,10 +1,24 @@
 package battleship;
 
-public abstract class Player {
+abstract class Player {
 
-    Player(){}
+    //Player();
 
-    abstract String name();
+    public abstract void setName(String name);
 
-    abstract String move();
+    public abstract String getName();
+
+    public abstract void setMarker(String marker);
+
+    public abstract String getMarker();
+
+    public abstract int potentialMove(int move);
+
+    public abstract Board getBoard();
+
+    public abstract int[][] getWinCombo();
+
+    public abstract void setType(String type);
+
+    public abstract String getType();
 }
