@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d52b7d50-82b4-499b-99be-e376d97c5fd1" name="Default" comment="Adding methods to Players and Boards">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_9_5.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/battleship/App.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/battleship/AppTest.java" />
+    <list default="true" id="d52b7d50-82b4-499b-99be-e376d97c5fd1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/battleship.iml" afterPath="$PROJECT_DIR$/battleship.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Board.java" afterPath="$PROJECT_DIR$/src/main/java/battleship/Board.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/CLI.java" afterPath="$PROJECT_DIR$/src/main/java/battleship/CLI.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Computer.java" afterPath="$PROJECT_DIR$/src/main/java/battleship/Computer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Game.java" afterPath="$PROJECT_DIR$/src/main/java/battleship/Game.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Human.java" afterPath="$PROJECT_DIR$/src/main/java/battleship/Human.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Player.java" afterPath="$PROJECT_DIR$/src/main/java/battleship/Player.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/Start.java" afterPath="$PROJECT_DIR$/src/main/java/battleship/Start.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/BoardTest.java" afterPath="$PROJECT_DIR$/src/test/java/battleship/BoardTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/CLITest.java" afterPath="$PROJECT_DIR$/src/test/java/battleship/CLITest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/ComputerTest.java" afterPath="$PROJECT_DIR$/src/test/java/battleship/ComputerTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/GameTest.java" afterPath="$PROJECT_DIR$/src/test/java/battleship/GameTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/HumanTest.java" afterPath="$PROJECT_DIR$/src/test/java/battleship/HumanTest.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/battleship/CLI.class" afterPath="$PROJECT_DIR$/target/classes/battleship/CLI.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/battleship/Computer.class" afterPath="$PROJECT_DIR$/target/classes/battleship/Computer.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/battleship/Game.class" afterPath="$PROJECT_DIR$/target/classes/battleship/Game.class" />
@@ -508,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519945558199</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adding methods to Players and Boards">
+      <created>1520019548877</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1520019548877</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
