@@ -8,10 +8,6 @@ abstract class Player {
 
     public abstract String getName();
 
-    public abstract void setMarker(String marker);
-
-    public abstract String getMarker();
-
     public abstract int potentialMove(int move);
 
     public abstract Board getBoard();

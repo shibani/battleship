@@ -106,13 +106,14 @@ public class CLITest {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bo));
 
+
         testCli.confirmPlayerSelection(1);
 
         bo.flush();
 
         String inputLines = new String(bo.toByteArray());
 
-        assertTrue(inputLines.contains("You selected: 1. Human Player goes first."));
+        assertTrue(inputLines.contains("You selected: 1. User goes first."));
     }
 
     @Test
@@ -136,42 +137,64 @@ public class CLITest {
     @Test
     public void coordsToPosition() {
         CLI testCli = new CLI();
-        String coords = "3,4";
+        String coords = "J,9";
 
-        assertEquals(34, testCli.coordsToPosition(coords));
+        assertEquals(99, testCli.coordsToPosition(coords));
     }
 
     @Test
-    public void announcePlayer1Turn() throws IOException {
+    public void announcePlayerTurn() throws IOException {
         CLI testCli = new CLI();
 
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bo));
 
         Game game = new Game();
-        game.createPlayers("Human vs. Computer", "User");
+        game.createPlayers(1, 1);
 
-        testCli.announcePlayer1Turn(game);
+        testCli.announcePlayerTurn(game);
 
         bo.flush();
 
         String inputLines = new String(bo.toByteArray());
         assertTrue(inputLines.contains("Player 1's board"));
-        assertTrue(inputLines.contains("Enter your move with one digit for the row and one digit for the column separated by a comma"));
     }
 
     @Test
-    public void getMove() throws IOException {
+    public void getMove1() throws IOException {
         CLI testCli = new CLI();
-        Game game = new Game();
-        game.createPlayers("Human vs. Computer", "User");
 
-        byte[] data = "4,8".getBytes();
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        byte[] data = "D,8".getBytes();
         InputStream input = new ByteArrayInputStream(data);
         System.setIn(input);
 
         String testResult = testCli.getMove();
 
-        assertEquals("4,8", testResult);
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+        assertTrue(inputLines.contains("Enter your move with one letter for the row and one digit for the column separated by a comma:"));
+
+    }
+
+    @Test
+    public void getMove2() throws IOException {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        byte[] data = "D,8".getBytes();
+        InputStream input = new ByteArrayInputStream(data);
+        System.setIn(input);
+
+        String testResult = testCli.getMove();
+
+        assertEquals("D,8", testResult);
     }
 }

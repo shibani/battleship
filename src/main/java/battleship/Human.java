@@ -20,18 +20,6 @@ public class Human extends Player {
         return this.name;
     }
 
-    public void setMarker(String marker){
-        this.marker = marker;
-    }
-
-    public String getMarker(){
-        return this.marker;
-    }
-
-    public int potentialMove(int move){
-        return move;
-    }
-
     public Board getBoard(){
         return board;
     }
@@ -56,5 +44,9 @@ public class Human extends Player {
 
     public String getType(){
         return this.type;
+    }
+
+    public int potentialMove(int move){
+        return move;
     }
 }

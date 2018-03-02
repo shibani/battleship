@@ -4,7 +4,6 @@ public class Computer extends Player {
 
     String name;
     String type;
-    String marker;
     Board board = new Board();
     int[][] winCombo = new int[5][];
 
@@ -18,14 +17,6 @@ public class Computer extends Player {
 
     public String getName(){
         return this.name;
-    }
-
-    public void setMarker(String marker){
-        this.marker = marker;
-    }
-
-    public String getMarker(){
-        return this.marker;
     }
 
     public int potentialMove(int move){

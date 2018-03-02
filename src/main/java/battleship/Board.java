@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Board {
 
     private final int totalPositions;
-    private ArrayList<Integer> positions = new ArrayList<Integer>();
+    private ArrayList<String> positions = new ArrayList<String>();
 
     Board(){
         this.totalPositions = 100;
@@ -15,7 +15,7 @@ public class Board {
     public void setPositions(){
         int i = 0;
         while(i < this.totalPositions) {
-            positions.add(i);
+            positions.add(" ");
             i++;
         }
     }
@@ -24,23 +24,13 @@ public class Board {
         return this.totalPositions;
     }
 
-    public ArrayList<Integer> getPositions(){
+    public ArrayList<String> getPositions(){
         return positions;
     }
 
-    public void sankShip(){
-        //TODO "You sank my battleship!"
-    }
-
-    public void won(){
-        //TODO All enemy ships were sunk
-    }
-
     public boolean isEmpty(int position){
-        if(this.getPositions().get(position) != "X" || "O" ){
+        if(this.getPositions().get(position).equals(" ")){
             return true;
-        } else {
-            return false;
-        }
+        } else return false;
     }
 }

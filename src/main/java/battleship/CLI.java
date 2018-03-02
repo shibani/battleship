@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ public class CLI {
 
     public static final HashMap<Integer, String> gameTypeChoices = new HashMap<Integer, String>();
     public static final HashMap<Integer, String> firstPlayer = new HashMap<Integer, String>();
+    public static final String[] alpha = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 
     static {
         gameTypeChoices.put(1, "Human vs. Computer");
@@ -66,43 +68,49 @@ public class CLI {
 
     public void printBoard(Board board) {
 
-        ArrayList<Integer> positions = board.getPositions();
+        ArrayList<String> positions = board.getPositions();
 
         int i = 0;
 
-        String border = " +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+ ";
+        System.out.println("      0     1     2     3     4     5     6     7     8     9    ");
+
+        String border = "   +=====+=====+=====+=====+=====+=====+=====+=====+=====+=====+ ";
 
         System.out.println(border);
-        System.out.print(" | ");
+        System.out.print(" A | ");
 
         while(i < board.getTotalPositions()) {
-            System.out.print((positions.get(i)/10) + "," + (positions.get(i) % 10) + " | ");
-            if(i % 10 == 9){
+             System.out.print((" " + positions.get(i) + " " + " | "));
+             if(i % 10 == 9){
                 System.out.print("\n");
                 System.out.println(border);
                 if(i != board.getTotalPositions() - 1){
-                    System.out.print(" | ");
+                    System.out.print(" " + (alpha[(i/10) + 1]) + " | ");
                 }
-            }
-            i++;
+             }
+             i++;
         }
     }
 
     public int coordsToPosition(String coords){
+
         String[] coordsArray = coords.split(",");
-        int position = Integer.parseInt(coordsArray[0]) * 10 + Integer.parseInt(coordsArray[1]);
+
+        int index = Arrays.asList(CLI.alpha).indexOf(coordsArray[0]);
+        int position = index * 10 + Integer.parseInt(coordsArray[1]);
+
         return position;
     }
 
-    public void announcePlayer1Turn(Game game){
-        System.out.println("Player 1 is " + game.getPlayersArray()[0].getClass().getName() + ". " +
-                game.getPlayer1().getClass().getName() + " goes first:");
+    public void announcePlayerTurn(Game game){
+        System.out.println("Player 1 is " + game.getCurrentPlayer().getClass().getName() + ". " +
+                game.getCurrentPlayer().getClass().getName() + " goes first:");
 
         System.out.println("Player 1's board");
-        System.out.println("Enter your move with one digit for the row and one digit for the column separated by a comma");
     }
 
     public String getMove() throws IOException {
+        System.out.println("Enter your move with one letter for the row and one digit for the column separated by a comma:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
 

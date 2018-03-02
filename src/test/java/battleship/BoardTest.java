@@ -10,15 +10,19 @@ import static junit.framework.TestCase.assertEquals;
 public class BoardTest {
 
     @Test
-    public void getPositions() {
+    public void setPositions() {
         Board testBoard = new Board();
-        ArrayList<Integer> result = testBoard.getPositions();
+        ArrayList<String> result = testBoard.getPositions();
 
         assertEquals(100, result.size());
     }
 
     @Test
-    public void setPositions() {
+    public void getPositions() {
+        Board testBoard = new Board();
+        ArrayList<String> result = testBoard.getPositions();
+
+        assertEquals(" ", result.get(40));
     }
 
     @Test
@@ -26,14 +30,6 @@ public class BoardTest {
         Board testBoard = new Board();
 
         assertEquals(100, testBoard.getTotalPositions());
-    }
-
-    @Test
-    public void sankShip() {
-    }
-
-    @Test
-    public void won() {
     }
 
     @Test

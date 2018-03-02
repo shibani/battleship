@@ -11,16 +11,6 @@ import static org.junit.Assert.assertThat;
 public class HumanTest {
 
     @Test
-    public void potentialMove(){
-        Board testBoard = new Board();
-        Player testPlayer1 = new Human();
-
-        int result = testPlayer1.potentialMove(30);
-
-        assertEquals(30, result);
-    }
-
-    @Test
     public void getBoard() {
         Board testBoard = new Board();
         Player testPlayer1 = new Human();
@@ -85,18 +75,12 @@ public class HumanTest {
     }
 
     @Test
-    public void setMarker() {
-        Player player = new Human();
-        player.setMarker("X");
+    public void potentialMove(){
+        Board testBoard = new Board();
+        Player testPlayer1 = new Human();
 
-        assertThat(player, HasProperty.hasProperty("marker"));
-    }
+        int result = testPlayer1.potentialMove(30);
 
-    @Test
-    public void getMarker() {
-        Player player = new Human();
-        player.setType("X");
-
-        assertEquals( "X", player.getType());
+        assertEquals(30, result);
     }
 }

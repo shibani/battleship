@@ -80,20 +80,4 @@ public class ComputerTest {
 
         assertEquals( "Player1", player.getType());
     }
-
-    @Test
-    public void setMarker() {
-        Player player = new Computer();
-        player.setMarker("X");
-
-        assertThat(player, HasProperty.hasProperty("marker"));
-    }
-
-    @Test
-    public void getMarker() {
-        Player player = new Computer();
-        player.setType("X");
-
-        assertEquals( "X", player.getType());
-    }
 }
