@@ -5,7 +5,6 @@ public class Human extends Player {
     private String name;
     private String type;
     private Board board = new Board();
-    private int maxPossibleHits;
     private String[][] winCombo = {
             {"1", "2"},
             {"17", "18", "19"},

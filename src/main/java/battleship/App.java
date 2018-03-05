@@ -39,17 +39,24 @@ public class App {
         App.cli = cli;
 
         App.cli.announcePlayerTurn(game);
-
         App.cli.printBoard(game.getCurrentPlayer().getBoard());
 
-        String move = App.cli.getMove();
+        if (game.getCurrentPlayer().getClass().getName().contains("Human")) {
+            String move = App.cli.getHumanMove();
+            int moveToInt = App.cli.coordsToPosition(move);
+            int moveToBoard = App.game.getCurrentPlayer().potentialMove(moveToInt);
+            markBoardAndSendMessages(moveToBoard);
+        } else {
+            App.cli.getComputerMove();
+            int moveToBoard = App.game.getCurrentPlayer().potentialMove(123);
+            markBoardAndSendMessages(moveToBoard);
+        }
+    }
 
-        int moveToInt = App.cli.coordsToPosition(move);
 
-        int moveToBoard = game.getCurrentPlayer().potentialMove(moveToInt); //if Computer, generate random here
-
-        if(game.getCurrentPlayer().getBoard().isEmpty(moveToBoard)){
-            String gameStatus = game.makeMove(moveToBoard);
+    public static void markBoardAndSendMessages(int move) throws IOException {
+        if(game.getCurrentPlayer().getBoard().isEmpty(move)){
+            String gameStatus = game.makeMove(move);
             if (gameStatus.equals("hit")){
                 App.cli.hit(game.getCurrentPlayer());
                 App.cli.printBoard(game.getCurrentPlayer().getBoard());
@@ -64,7 +71,7 @@ public class App {
             }
         } else {
             System.out.println("That position is taken. Please try again.");
-            App.cli.printBoard(game.getCurrentPlayer().getBoard());
+            gameLoop(App.game, App.cli);
         }
     }
 }

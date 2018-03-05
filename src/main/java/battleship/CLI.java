@@ -101,20 +101,24 @@ public class CLI {
     }
 
     public void announcePlayerTurn(Game game){
-        System.out.println("Player 1 is " + game.getCurrentPlayer().getClass().getName() + ". " +
-                game.getCurrentPlayer().getClass().getName() + " goes first:");
+        System.out.println(game.getCurrentPlayer().getName() +
+                " is " + game.getCurrentPlayer().getType() + ". " + game.getCurrentPlayer().getName() + "'s turn.");
+        System.out.println(game.getCurrentPlayer().getName() + "'s board:");
 
-        System.out.println("Player 1's board");
     }
 
-    public String getMove() throws IOException {
+    public String getHumanMove() throws IOException {
         System.out.println("Enter your move with one letter for the row and one digit for the column separated by a comma:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         return br.readLine();
     }
 
+    public void getComputerMove() throws IOException {
+        System.out.println("Computer is generating a move.");
+    }
+
     public void wonMessage(Player player){
-        System.out.println("You won!\n Would you like to play again?");
+        System.out.println("You won!\n Would you like to play again? Enter Y/N:");
     }
 
     public void sunk(Player player){

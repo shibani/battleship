@@ -161,7 +161,7 @@ public class CLITest {
     }
 
     @Test
-    public void getMove1() throws IOException {
+    public void getHumanMove1() throws IOException {
         CLI testCli = new CLI();
 
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
@@ -174,7 +174,7 @@ public class CLITest {
         InputStream input = new ByteArrayInputStream(data);
         System.setIn(input);
 
-        String testResult = testCli.getMove();
+        String testResult = testCli.getHumanMove();
 
         bo.flush();
 
@@ -184,7 +184,7 @@ public class CLITest {
     }
 
     @Test
-    public void getMove2() throws IOException {
+    public void getHumanMove2() throws IOException {
         CLI testCli = new CLI();
         Game game = new Game();
         game.createPlayers(1, 1);
@@ -193,9 +193,26 @@ public class CLITest {
         InputStream input = new ByteArrayInputStream(data);
         System.setIn(input);
 
-        String testResult = testCli.getMove();
+        String testResult = testCli.getHumanMove();
 
         assertEquals("D,8", testResult);
+    }
+
+    @Test
+    public void getComputerMove() throws IOException {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        testCli.getComputerMove();
+
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+        assertTrue(inputLines.contains("Computer is generating a move"));
     }
 
     @Test

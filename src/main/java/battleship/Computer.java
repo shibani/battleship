@@ -5,7 +5,6 @@ public class Computer extends Player {
     private String name;
     private String type;
     private Board board = new Board();
-    private int maxPossibleHits;
     private String[][] winCombo = {
             {"1", "2"},
             {"17", "18", "19"},
@@ -30,7 +29,7 @@ public class Computer extends Player {
 
     @Override
     public int potentialMove(int move){
-        return move;
+        return (int) Math.floor(Math.random() * 101);
     }
 
     @Override
