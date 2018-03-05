@@ -179,7 +179,7 @@ public class CLITest {
         bo.flush();
 
         String inputLines = new String(bo.toByteArray());
-        assertTrue(inputLines.contains("Enter your move with one letter for the row and one digit for the column separated by a comma:"));
+        assertTrue(inputLines.contains("Enter your move with one letter for the row and one digit for the column, e.g 'd9':"));
 
     }
 
@@ -254,7 +254,7 @@ public class CLITest {
         bo.flush();
 
         String inputLines = new String(bo.toByteArray());
-        assertTrue(inputLines.contains("You won!\n Would you like to play again?"));
+        assertTrue(inputLines.contains("Player 1 won!\n Would you like to play again?"));
     }
 
     @Test
@@ -290,7 +290,7 @@ public class CLITest {
         bo.flush();
 
         String inputLines = new String(bo.toByteArray());
-        assertTrue(inputLines.contains("You sank my battleship!"));
+        assertTrue(inputLines.contains("Player 1 sank a battleship!"));
     }
 
     @Test
@@ -322,7 +322,7 @@ public class CLITest {
         bo.flush();
 
         String inputLines = new String(bo.toByteArray());
-        assertTrue(inputLines.contains("You got a hit!"));
+        assertTrue(inputLines.contains("Player 1 got a hit!"));
     }
 
     @Test
@@ -356,6 +356,6 @@ public class CLITest {
 
         String inputLines = new String(bo.toByteArray());
 
-        assertTrue(inputLines.contains("No ships were hit, you missed!"));
+        assertTrue(inputLines.contains("No ships were hit, Player 1 missed!"));
     }
 }
