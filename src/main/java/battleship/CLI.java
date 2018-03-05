@@ -12,7 +12,7 @@ public class CLI {
 
     public static final HashMap<Integer, String> gameTypeChoices = new HashMap<Integer, String>();
     public static final HashMap<Integer, String> firstPlayer = new HashMap<Integer, String>();
-    public static final String[] alpha = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+    private static final String[] alpha = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 
     static {
         gameTypeChoices.put(1, "Human vs. Computer");
@@ -25,7 +25,7 @@ public class CLI {
         firstPlayer.put(2, "Opponent");
     }
 
-    public void welcome() throws IOException {
+    public void welcome() {
         System.out.println("Welcome to Battleship");
     }
 
@@ -97,9 +97,7 @@ public class CLI {
         String[] coordsArray = coords.split(",");
 
         int index = Arrays.asList(CLI.alpha).indexOf(coordsArray[0]);
-        int position = index * 10 + Integer.parseInt(coordsArray[1]);
-
-        return position;
+        return index * 10 + Integer.parseInt(coordsArray[1]);
     }
 
     public void announcePlayerTurn(Game game){
@@ -112,8 +110,26 @@ public class CLI {
     public String getMove() throws IOException {
         System.out.println("Enter your move with one letter for the row and one digit for the column separated by a comma:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String input = br.readLine();
+        return br.readLine();
+    }
 
-        return input;
+    public void wonMessage(){
+        System.out.println("You won!");
+    }
+
+    public void playAgain(){
+        System.out.println("Would you like to play again?");
+    }
+
+    public void sunk(){
+        System.out.println("You sunk my battleship!");
+    }
+
+    public void hit(){
+        System.out.println("You got a hit!");
+    }
+
+    public void miss(){
+        System.out.println("No ships were hit, you missed!");
     }
 }

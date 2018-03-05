@@ -28,7 +28,9 @@ public class App {
 
         game.createPlayers(choice, firstPlayer);
 
+        //while !game.isWon
         gameLoop(game, example);
+        //switch currentplayer;
 
     }
 
@@ -40,7 +42,7 @@ public class App {
 
         App.cli.printBoard(game.getCurrentPlayer().getBoard());
 
-        String move = App.cli.getMove(); //if Computer, output "Getting computer's move"
+        String move = App.cli.getMove();
 
         int moveToInt = App.cli.coordsToPosition(move);
 
@@ -48,23 +50,23 @@ public class App {
 
         //check if spot is open
         if(game.getCurrentPlayer().getBoard().isEmpty(moveToBoard)){
-            game.makeMove(moveToBoard);
+            String gameStatus = game.makeMove(moveToBoard);
+            if( gameStatus.equals("won")){
+                App.cli.wonMessage();
+                App.cli.playAgain();
+            } else if (gameStatus.equals("sunk")){
+                App.cli.sunk();
+                App.cli.printBoard(game.getCurrentPlayer().getBoard());
+            } else if (gameStatus.equals("hit")){
+                App.cli.hit();
+                App.cli.printBoard(game.getCurrentPlayer().getBoard());
+            } else {
+                App.cli.miss();
+                App.cli.printBoard(game.getCurrentPlayer().getBoard());
+            }
         } else {
             System.out.println("That position is taken. Please try again.");
             App.cli.printBoard(game.getCurrentPlayer().getBoard());
         }
-
-        App.cli.printBoard(game.getCurrentPlayer().getBoard());
-
-        //switch turn until game over
-
-        //System.out.println("\n\nPlayer 2's board");
-
-        //System.out.println("Player 2 is " + game.getPlayer2().getClass().getName() + ". " +
-        //game.getPlayer2().getClass().getName() + "'s turn:");
-
-        //example.printBoard(game.getPlayer2().getBoard());
-
     }
-
 }

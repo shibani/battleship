@@ -19,27 +19,6 @@ public class HumanTest {
     }
 
     @Test
-    public void getWinCombo() {
-        //Board testBoard = new Board();
-        Player testPlayer1 = new Human();
-
-        int[] array1 = new int[]{1, 2};
-        int[] array2 = new int[]{17, 18, 19};
-        int[] array3 = new int[]{83, 84, 85};
-        int[] array4 = new int[]{35, 45, 55, 65};
-        int[] array5 = new int[]{38, 48, 58, 68, 78};
-
-        int[][] testCombo = new int[5][];
-        testCombo[0] = array1;
-        testCombo[1] = array2;
-        testCombo[2] = array3;
-        testCombo[3] = array4;
-        testCombo[4] = array5;
-
-        Assert.assertArrayEquals(testCombo, testPlayer1.getWinCombo());
-    }
-
-    @Test
     public void setType() {
         Game game = new Game();
         Player player = new Human();
@@ -82,5 +61,43 @@ public class HumanTest {
         int result = testPlayer1.potentialMove(30);
 
         assertEquals(30, result);
+    }
+
+    @Test
+    public void setWinCombo() {
+        Player testPlayer1 = new Human();
+        String[][] testCombo = {
+                {"1", "2"},
+                {"17", "18", "19"},
+                {"83", "84", "85"},
+                {"35", "45", "55", "65"},
+                {"38", "48", "58", "68", "78"}
+        };
+
+        Assert.assertArrayEquals(testCombo, testPlayer1.getWinCombo());
+    }
+
+    @Test
+    public void getWinCombo() {
+        Player testPlayer1 = new Human();
+
+        String[][] testCombo = {
+                {"1", "2"},
+                {"17", "18", "19"},
+                {"83", "X", "85"},
+                {"35", "45", "55", "65"},
+                {"38", "48", "58", "68", "78"}
+        };
+
+        testPlayer1.setWinCombo(2,1, "X");
+
+        Assert.assertArrayEquals(testCombo, testPlayer1.getWinCombo());
+    }
+
+
+    @Test
+    public void maxPossibleHits() {
+        Player testPlayer1 = new Human();
+        assertEquals(17, testPlayer1.maxPossibleHits());
     }
 }

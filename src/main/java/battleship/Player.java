@@ -2,8 +2,6 @@ package battleship;
 
 abstract class Player {
 
-    //Player();
-
     public abstract void setName(String name);
 
     public abstract String getName();
@@ -12,9 +10,13 @@ abstract class Player {
 
     public abstract Board getBoard();
 
-    public abstract int[][] getWinCombo();
+    public abstract void setWinCombo(int i, int j, String marker);
+
+    public abstract String[][] getWinCombo();
 
     public abstract void setType(String type);
 
     public abstract String getType();
+
+    public abstract int maxPossibleHits();
 }

@@ -80,13 +80,47 @@ public class GameTest {
     }
 
     @Test
-    public void makeMove() {
+    public void moveReturnsAHit1() {
         Game game = new Game();
         game.createPlayers(1,1);
         game.setCurrentPlayer();
-        game.getCurrentPlayer().getBoard().getPositions().set(36, "X");
 
-        assertEquals("X", game.getCurrentPlayer().getBoard().getPositions().get(36));
+        String result = game.makeMove(45);
+
+        assertEquals("X", game.getCurrentPlayer().getBoard().getPositions().get(45));
+    }
+
+    @Test
+    public void moveReturnsAHit2() {
+        Game game = new Game();
+        game.createPlayers(1,1);
+        game.setCurrentPlayer();
+
+        String result = game.makeMove(35);
+
+        assertEquals("hit", result);
+    }
+
+    @Test
+    public void moveReturnsAMiss1() {
+        Game game = new Game();
+        game.createPlayers(1,1);
+        game.setCurrentPlayer();
+
+        String result = game.makeMove(24);
+
+        assertEquals("n", game.getCurrentPlayer().getBoard().getPositions().get(24));
+    }
+
+    @Test
+    public void moveReturnsAMiss2() {
+        Game game = new Game();
+        game.createPlayers(1,1);
+        game.setCurrentPlayer();
+
+        String result = game.makeMove(24);
+
+        assertEquals("miss", result);
     }
 
     @Test
@@ -94,15 +128,61 @@ public class GameTest {
         Game game = new Game();
         game.createPlayers(1,1);
         game.setCurrentPlayer();
+
+        game.getCurrentPlayer().getBoard().getPositions().set(1, "X");
         game.getCurrentPlayer().getBoard().getPositions().set(2, "X");
 
+        assertEquals("hit", game.shipIsHit(85));
     }
 
     @Test
     public void shipIsSunk() {
+        Game game = new Game();
+        game.createPlayers(1,1);
+        game.setCurrentPlayer();
+        game.getCurrentPlayer().getBoard().getPositions().set(83, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(84, "X");
+
+        assertEquals("sunk", game.shipIsHit(85));
+    }
+
+    @Test
+    public void noShipsHit() {
+        Game game = new Game();
+        game.createPlayers(1,1);
+        game.setCurrentPlayer();
+
+        game.getCurrentPlayer().getBoard().getPositions().set(1, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(2, "X");
+
+        assertEquals("miss", game.shipIsHit(23));
     }
 
     @Test
     public void isWon() {
+        Game game = new Game();
+        game.createPlayers(1,1);
+        game.setCurrentPlayer();
+
+        game.getCurrentPlayer().getBoard().getPositions().set(1, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(17, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(18, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(19, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(83, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(84, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(85, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(35, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(45, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(55, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(65, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(38, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(48, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(58, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(68, "X");
+        game.getCurrentPlayer().getBoard().getPositions().set(78, "X");
+
+        game.shipIsHit(2);
+
+        assertEquals(true, game.isWon());
     }
 }
