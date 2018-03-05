@@ -10,29 +10,6 @@ import static org.junit.Assert.assertThat;
 public class GameTest {
 
     @Test
-    public void createPlayers() {
-        Game game = new Game();
-        game.createPlayers(1,1);
-        assertEquals(2, game.getPlayersArray().length);
-    }
-
-    @Test
-    public void setPlayersArray() {
-        Game game = new Game();
-        game.createPlayers(1,1);
-        Player player = game.getPlayersArray()[0];
-        assertThat(player, instanceOf(Player.class));
-    }
-
-    @Test
-    public void getPlayersArray() {
-        Game game = new Game();
-
-        game.createPlayers(1,1);
-        assertEquals(2, game.getPlayersArray().length);
-    }
-
-    @Test
     public void getPlayer1() {
         Game game = new Game();
         game.createPlayers(1,1);

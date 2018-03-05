@@ -48,7 +48,6 @@ public class App {
 
         int moveToBoard = game.getCurrentPlayer().potentialMove(moveToInt); //if Computer, generate random here
 
-        //check if spot is open
         if(game.getCurrentPlayer().getBoard().isEmpty(moveToBoard)){
             String gameStatus = game.makeMove(moveToBoard);
             if( gameStatus.equals("won")){

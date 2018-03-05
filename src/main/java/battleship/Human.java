@@ -4,7 +4,7 @@ public class Human extends Player {
 
     private String name;
     private String type;
-    private Board board;
+    private Board board = new Board();
     int maxPossibleHits;
     private String[][] winCombo = {
             {"1", "2"},
@@ -15,7 +15,9 @@ public class Human extends Player {
     };
 
 
-    Human(){}
+    Human(){
+        this.board = board;
+    }
 
     @Override
     public void setName(String name){

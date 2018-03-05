@@ -5,7 +5,6 @@ public class Game {
     Player player1;
     Player player2;
     private Player currentPlayer;
-    //Player[] players = new Player[2];
 
     Game(){}
 
@@ -38,26 +37,16 @@ public class Game {
             this.player2.setType("User");
         }
 
-        //this.setPlayersArray(this.player1, this.player2);
         this.player1.setName("Player 1");
         this.player2.setName("Player 2");
         this.setCurrentPlayer();
     }
 
-    /*public void setPlayersArray(Player player1, Player player2){
-        this.players[0] = player1;
-        this.players[1] = player2;
-    }*/
-
-    /*public Player[] getPlayersArray(){
-        return this.players;
-    }*/
-
-    private Player getPlayer1(){
+    public Player getPlayer1(){
         return this.player1;
     }
 
-    private Player getPlayer2(){
+    public Player getPlayer2(){
         return this.player2;
     }
 

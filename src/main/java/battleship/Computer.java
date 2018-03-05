@@ -4,7 +4,7 @@ public class Computer extends Player {
 
     private String name;
     private String type;
-    private Board board;
+    private Board board = new Board();
     int maxPossibleHits;
     private String[][] winCombo = {
             {"1", "2"},
@@ -14,7 +14,9 @@ public class Computer extends Player {
             {"38", "48", "58", "68", "78"}
     };
 
-    Computer(){}
+    Computer(){
+        this.board = board;
+    }
 
     @Override
     public void setName(String name){
