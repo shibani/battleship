@@ -28,10 +28,10 @@ public class App {
 
         game.createPlayers(choice, firstPlayer);
 
-        //while !game.isWon
-        gameLoop(game, example);
-        //switch currentplayer;
-
+        while(!game.isWon()){
+            gameLoop(game, example);
+            game.setCurrentPlayer();
+        }
     }
 
     public static void gameLoop(Game game, CLI cli) throws IOException {
@@ -50,17 +50,16 @@ public class App {
 
         if(game.getCurrentPlayer().getBoard().isEmpty(moveToBoard)){
             String gameStatus = game.makeMove(moveToBoard);
-            if( gameStatus.equals("won")){
-                App.cli.wonMessage();
-                App.cli.playAgain();
+            if (gameStatus.equals("hit")){
+                App.cli.hit(game.getCurrentPlayer());
+                App.cli.printBoard(game.getCurrentPlayer().getBoard());
             } else if (gameStatus.equals("sunk")){
-                App.cli.sunk();
+                App.cli.sunk(game.getCurrentPlayer());
                 App.cli.printBoard(game.getCurrentPlayer().getBoard());
-            } else if (gameStatus.equals("hit")){
-                App.cli.hit();
-                App.cli.printBoard(game.getCurrentPlayer().getBoard());
+            } else if(gameStatus.equals("won")){
+                App.cli.wonMessage(game.getCurrentPlayer());
             } else {
-                App.cli.miss();
+                App.cli.miss(game.getCurrentPlayer());
                 App.cli.printBoard(game.getCurrentPlayer().getBoard());
             }
         } else {

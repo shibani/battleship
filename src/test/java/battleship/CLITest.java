@@ -197,4 +197,148 @@ public class CLITest {
 
         assertEquals("D,8", testResult);
     }
+
+    @Test
+    public void wonMessage() throws IOException {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        game.makeMove(1);
+        game.makeMove(2);
+
+        game.makeMove(17);
+        game.makeMove(18);
+        game.makeMove(19);
+
+        game.makeMove(83);
+        game.makeMove(84);
+        game.makeMove(85);
+
+        game.makeMove(35);
+        game.makeMove(45);
+        game.makeMove(55);
+        game.makeMove(65);
+
+        game.makeMove(38);
+        game.makeMove(48);
+        game.makeMove(58);
+        game.makeMove(68);
+        game.makeMove(78);
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        testCli.wonMessage(game.getCurrentPlayer());
+        testCli.sunk(game.getCurrentPlayer());
+        testCli.hit(game.getCurrentPlayer());
+        testCli.miss(game.getCurrentPlayer());
+
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+        assertTrue(inputLines.contains("You won!\n Would you like to play again?"));
+    }
+
+    @Test
+    public void sunk1() {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        game.makeMove(17);
+        game.makeMove(18);
+        String result = game.makeMove(19);
+
+        assertEquals("sunk", result);
+    }
+
+    @Test
+    public void sunk2() throws IOException {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+        game.makeMove(17);
+        game.makeMove(18);
+        game.makeMove(19);
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        testCli.wonMessage(game.getCurrentPlayer());
+        testCli.sunk(game.getCurrentPlayer());
+        testCli.hit(game.getCurrentPlayer());
+        testCli.miss(game.getCurrentPlayer());
+
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+        assertTrue(inputLines.contains("You sank my battleship!"));
+    }
+
+    @Test
+    public void hit1() throws IOException {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        String result = game.makeMove(35);
+
+        assertEquals("hit", result);
+    }
+
+    @Test
+    public void hit2() throws IOException {
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+        game.makeMove(35);
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        testCli.wonMessage(game.getCurrentPlayer());
+        testCli.sunk(game.getCurrentPlayer());
+        testCli.hit(game.getCurrentPlayer());
+        testCli.miss(game.getCurrentPlayer());
+
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+        assertTrue(inputLines.contains("You got a hit!"));
+    }
+
+    @Test
+    public void miss1() throws IOException{
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        String result = game.makeMove(23);
+
+        assertEquals("miss", result);
+    }
+
+    @Test
+    public void miss2() throws IOException{
+        CLI testCli = new CLI();
+        Game game = new Game();
+        game.createPlayers(1, 1);
+
+        game.makeMove(23);
+
+        ByteArrayOutputStream bo = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(bo));
+
+        testCli.wonMessage(game.getCurrentPlayer());
+        testCli.sunk(game.getCurrentPlayer());
+        testCli.hit(game.getCurrentPlayer());
+        testCli.miss(game.getCurrentPlayer());
+
+        bo.flush();
+
+        String inputLines = new String(bo.toByteArray());
+
+        assertTrue(inputLines.contains("No ships were hit, you missed!"));
+    }
 }

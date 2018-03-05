@@ -113,23 +113,19 @@ public class CLI {
         return br.readLine();
     }
 
-    public void wonMessage(){
-        System.out.println("You won!");
+    public void wonMessage(Player player){
+        System.out.println("You won!\n Would you like to play again?");
     }
 
-    public void playAgain(){
-        System.out.println("Would you like to play again?");
+    public void sunk(Player player){
+        System.out.println("You sank my battleship!");
     }
 
-    public void sunk(){
-        System.out.println("You sunk my battleship!");
-    }
-
-    public void hit(){
+    public void hit(Player player){
         System.out.println("You got a hit!");
     }
 
-    public void miss(){
+    public void miss(Player player){
         System.out.println("No ships were hit, you missed!");
     }
 }
