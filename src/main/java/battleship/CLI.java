@@ -44,7 +44,7 @@ public class CLI {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
 
-        return Integer.parseInt(input);
+        return Integer.parseInt(input.trim());
     }
 
     public void confirmGameType(int choice){
@@ -60,7 +60,7 @@ public class CLI {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
 
-        return Integer.parseInt(input);
+        return Integer.parseInt(input.trim());
     }
 
     public void confirmPlayerSelection(int selection){
@@ -121,18 +121,18 @@ public class CLI {
     }
 
     public void wonMessage(Player player){
-        System.out.println("You won!\n Would you like to play again? Enter Y/N:");
+        System.out.println(player.getName() + " won!\n Would you like to play again? Enter Y/N:");
     }
 
     public void sunk(Player player){
-        System.out.println("You sank my battleship!");
+        System.out.println(player.getName() + " sank a battleship!");
     }
 
     public void hit(Player player){
-        System.out.println("You got a hit!");
+        System.out.println(player.getName() + " got a hit!");
     }
 
     public void miss(Player player){
-        System.out.println("No ships were hit, you missed!");
+        System.out.println("No ships were hit, " + player.getName() +  " missed!");
     }
 }
