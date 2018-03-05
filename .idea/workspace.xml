@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52b7d50-82b4-499b-99be-e376d97c5fd1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/CLITest.java" afterPath="$PROJECT_DIR$/src/test/java/battleship/CLITest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/ComputerTest.java" afterPath="$PROJECT_DIR$/src/test/java/battleship/ComputerTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -102,11 +100,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CLITest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CLITest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/battleship/CLITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="181" column="123" lean-forward="false" selection-start-line="181" selection-start-column="123" selection-end-line="181" selection-end-column="123" />
+            <state relative-caret-position="56">
+              <caret line="73" column="9" lean-forward="true" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -117,16 +125,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/battleship/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -210,6 +208,7 @@
         <option value="$PROJECT_DIR$/src/main/java/battleship/CLI.java" />
         <option value="$PROJECT_DIR$/src/test/java/battleship/ComputerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/battleship/CLITest.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -627,9 +626,6 @@
     <history-entry file="CLITest - 2018.03.05 at 18h 01m 45s.xml">
       <configuration name="CLITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CLITest_coordsToPosition - 2018.03.05 at 14h 21m 50s.xml">
-      <configuration name="CLITest.coordsToPosition" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CLITest_coordsToPosition - 2018.03.05 at 14h 22m 49s.xml">
       <configuration name="CLITest.coordsToPosition" configurationId="JUnit" />
     </history-entry>
@@ -644,6 +640,9 @@
     </history-entry>
     <history-entry file="CLITest_coordsToPosition - 2018.03.05 at 14h 27m 12s.xml">
       <configuration name="CLITest.coordsToPosition" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CLITest_getHumanMove1 - 2018.03.05 at 18h 02m 34s.xml">
+      <configuration name="CLITest.getHumanMove1" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ComputerTest_potentialMove - 2018.03.05 at 17h 59m 51s.xml">
       <configuration name="ComputerTest.potentialMove" configurationId="JUnit" />
@@ -666,7 +665,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3030303" sideWeight="0.49112427" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.49408284" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32506886" sideWeight="0.49408284" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32506886" sideWeight="0.49408284" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2596154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -752,22 +751,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/battleship/CLI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="135" column="73" lean-forward="false" selection-start-line="135" selection-start-column="73" selection-end-line="135" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4444#4445#0" expanded="true" />
-            <element signature="e#4520#4521#0" expanded="true" />
-            <element signature="e#4557#4558#0" expanded="true" />
-            <element signature="e#4625#4626#0" expanded="true" />
-            <element signature="e#4663#4664#0" expanded="true" />
-            <element signature="e#4753#4754#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/battleship/GameTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1650">
@@ -1344,8 +1327,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/battleship/CLITest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="181" column="123" lean-forward="false" selection-start-line="181" selection-start-column="123" selection-end-line="181" selection-end-column="123" />
+        <state relative-caret-position="56">
+          <caret line="73" column="9" lean-forward="true" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
           <folding />
         </state>
       </provider>
