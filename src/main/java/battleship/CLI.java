@@ -26,7 +26,9 @@ public class CLI {
     }
 
     public void welcome() {
-        System.out.println("Welcome to Battleship");
+        System.out.println("==============================");
+        System.out.println("    " + "Welcome to Battleship");
+        System.out.println("==============================\n");
     }
 
     public void selectGameType() {
@@ -92,12 +94,13 @@ public class CLI {
         }
     }
 
-    public int coordsToPosition(String coords){
+    public int coordsToPosition(String incoming){
+        String coords = incoming.trim();
+        String alpha = (Character.toString(coords.charAt(0)).toUpperCase());
+        int num = Character.getNumericValue(coords.charAt(coords.length() - 1));
 
-        String[] coordsArray = coords.split(",");
-
-        int index = Arrays.asList(CLI.alpha).indexOf(coordsArray[0]);
-        return index * 10 + Integer.parseInt(coordsArray[1]);
+        int index = Arrays.asList(CLI.alpha).indexOf(alpha);
+        return (index * 10) + num;
     }
 
     public void announcePlayerTurn(Game game){
@@ -108,7 +111,7 @@ public class CLI {
     }
 
     public String getHumanMove() throws IOException {
-        System.out.println("Enter your move with one letter for the row and one digit for the column separated by a comma:");
+        System.out.println("Enter your move with one letter for the row and one digit for the column, e.g 'd9':");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         return br.readLine();
     }

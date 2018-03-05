@@ -137,7 +137,7 @@ public class CLITest {
     @Test
     public void coordsToPosition() {
         CLI testCli = new CLI();
-        String coords = "J,9";
+        String coords = "j9";
 
         assertEquals(99, testCli.coordsToPosition(coords));
     }
