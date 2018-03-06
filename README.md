@@ -17,9 +17,13 @@
 
 #### To run the app and tests directly from INTELLIJ ####
 
- - Tests:   from within project navigate to **battleship > src > test > java > battleship**  
+ - Tests:   from the left nav menu select/highlight **battleship > src > test > java**
+            then right-click and scroll down to find **Run 'All Tests'** slightly lower than midway in the resulting dropdown
+            
+            from within project navigate to **battleship > src > test > java > battleship**  
             Once here click on any class file and **click the green play icon at the top of the file in the left gutter** to run the entire file of tests  
             Or click on the green play icon in the left gutter alongside each test method to run an individual test  
 
  - App:     from within project navigate to **battleship > src > main > java > battleship > Start**  
+  
             **click on the green play icon in the left gutter** alongside Start to launch the program in the console.
