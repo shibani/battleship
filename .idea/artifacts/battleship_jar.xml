@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="battleship:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/battleship_jar</output-path>
+    <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="battleship.jar">
       <element id="module-output" name="battleship" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar" path-in-jar="/" />
